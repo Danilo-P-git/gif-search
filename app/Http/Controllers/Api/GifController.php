@@ -21,7 +21,19 @@ class GifController extends Controller
         $query = str_replace('=', '',$queryRaw);
         $search = file_get_contents('http://'.'api.giphy.com/v1/gifs/search?api_key=XKr0PsRKWR2zKUX5kLJPpy0OrUUCnXnp&q='.$query);
         $output = json_decode($search);
-        return response()->json($output);
+        $results = $output->data;
+        $arrayResults = [];
+        foreach ($results as $result) {
+            $url = $result->url;
+            $arrayResults[]= $url;
+            
+        }
+       
+        
+        
+        return response()->json([
+            'result'=> $arrayResults
+        ]);
     }
 
 }
