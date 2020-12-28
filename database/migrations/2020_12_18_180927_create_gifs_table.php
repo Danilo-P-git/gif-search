@@ -15,9 +15,10 @@ class CreateGifsTable extends Migration
     {
         Schema::create('gifs', function (Blueprint $table) {
             $table->id();
+            $table->string("slug");
             $table->text("description");
-            $table->integer("counter");
-            $table->string("credential");
+            $table->integer("counter")->default(0);
+            $table->json("credential");
             $table->timestamps();
         });
     }

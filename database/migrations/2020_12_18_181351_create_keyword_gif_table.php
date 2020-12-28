@@ -14,7 +14,7 @@ class CreateKeywordGifTable extends Migration
     public function up()
     {
         Schema::create('keyword_gif', function (Blueprint $table) {
-            $table->integer('counter_provider');
+            $table->integer('counter_provider')->default(0);
             $table->foreignId('gif_id')->constrained();
             $table->foreignId('keyword_id')->constrained();
         });
