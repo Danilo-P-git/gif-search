@@ -28,7 +28,9 @@ class GifController extends Controller
             $arrayResults[]= $url;
             
         }
-       
+        $newKeyword = new Keyword();
+        $newKeyword->keyword_text = $query;
+        $newKeyword->save();
         
         
         return response()->json([
