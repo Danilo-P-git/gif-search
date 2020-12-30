@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('providers', 'Api\GifController@search');
 Route::get('gifs', 'Api\GifController@keywordSearch');
+Route::get('providers/{slug}/stats', 'Api\GifController@providerStat');
